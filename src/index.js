@@ -68,6 +68,13 @@ export default (options = {}) => {
         contents: data.contents.toString()
       });
 
+      for (let key of Object.keys(props)) {
+        let value = props[key];
+        if (Buffer.isBuffer(value)) {
+          props[key] = value.toString();
+        }
+      }
+
       // if opt.preserve is set
       // preserve the raw, not templated content
       if (preserve){

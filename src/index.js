@@ -88,7 +88,7 @@ export default (options = {}) => {
 
         // Buffer back the result
         data.contents = new Buffer(result);
-        
+
         // Allow injecting {{props}} via base.html template.
         data.props = JSON.stringify(props);
 

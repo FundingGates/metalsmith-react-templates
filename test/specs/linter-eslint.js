@@ -1,6 +1,6 @@
 'use strict';
 
-var execSync = require('exec-sync');
+var execSync = require('sync-exec');
 var assert = require('assert');
 var fs = require('fs');
 
@@ -27,7 +27,9 @@ describe('lint - Source', function(){
       fs.writeFile(jsResult, result, function(){});
     }
 
-    assert.equal(result, '');
+    assert.equal(result.stdout, '');
+    assert.equal(result.stderr, '');
+    assert.equal(result.status, 0);
     done();
   });
 });
